@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team2175.robot;
 
+import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -20,11 +21,12 @@ public class Robot extends IterativeRobot {
     RobotDrive mecanumDrive;
     OI oi;
     Jaguar frontLeft, rearLeft, frontRight, rearRight;
-	
+	Gyro gyro;
 	
 	public void robotInit() {
     	
 		oi = new OI();
+		gyro = new Gyro(0);
 		
 		frontLeft = new Jaguar(0);
     	rearLeft = new Jaguar(1);
