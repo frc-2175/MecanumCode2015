@@ -13,7 +13,7 @@ public class OI {
 		rotateJoystick = new Joystick(1);
 	}
 	
-	public double deadband(double input) {
+	public double handleDeadband(double input) {
 		if (Math.abs(input) <= deadbandValue) {
 			return 0;
 		} else {
@@ -22,8 +22,8 @@ public class OI {
 	}
 	
 	public double getMagnitude() {
-		double xPos = deadband(moveJoystick.getX());
-		double yPos = deadband(moveJoystick.getY());
+		double xPos = handleDeadband(moveJoystick.getX());
+		double yPos = handleDeadband(moveJoystick.getY());
 		
 		double magnitude = Math.sqrt(Math.pow(xPos,2)+Math.pow(yPos, 2));
 		
@@ -32,8 +32,8 @@ public class OI {
 	}
 	
 	public double getAngle() {
-		double xPos = deadband(moveJoystick.getX());
-		double yPos = deadband(moveJoystick.getY());
+		double xPos = handleDeadband(moveJoystick.getX());
+		double yPos = handleDeadband(moveJoystick.getY());
 		
 		double angleInRad = Math.atan2(xPos, -yPos);
 		double angleInDeg = Math.toDegrees(angleInRad);
@@ -43,6 +43,6 @@ public class OI {
 	}
 	
 	public double getTurning() {
-		return deadband(rotateJoystick.getX());
+		return handleDeadband(rotateJoystick.getX());
 	}
 }
