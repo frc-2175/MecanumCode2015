@@ -6,7 +6,7 @@ public class OI {
 	
 	Joystick moveJoystick;
 	Joystick rotateJoystick;
-	double deadbandValue = 0.05;
+	double deadbandValue = 0.1;
 	
 	public OI() {
 		moveJoystick = new Joystick(0);
